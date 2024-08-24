@@ -52,3 +52,7 @@ buttons.forEach(button => {
     button.addEventListener('click', btnClick);
 });
 
+function btnReloadClick(){
+    location.reload();
+    return;
+}

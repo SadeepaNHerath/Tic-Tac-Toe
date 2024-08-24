@@ -30,7 +30,7 @@ function computerTurn(){
                 return;
             }, 600);
         }
-        else if(emptyButtons.length == 0){
+        else if(emptyButtons == 0){
             setTimeout(() => {
                 alert("Game Draw!");
                 window.location.reload();
@@ -38,7 +38,7 @@ function computerTurn(){
             }, 600);
         }
         else{
-            
+
         }
         currentPlayer = currentPlayer === "X" ? "O" : "X";
         player.innerText = "Your Turn";
@@ -51,7 +51,6 @@ function btnClick(event) {
     let clickedButton = event.target;
 
     if (clickedButton.innerText === "") {
-        usedBtns.push(clickedButton.value);
         clickedButton.innerText = "X";
 
         if (
@@ -70,7 +69,7 @@ function btnClick(event) {
                 return;
             }, 600);
         }
-        else if(usedBtns.length == 9){
+        else if(buttonsArray.filter(button => button.innerText === "").length == 0){
             setTimeout(() => {
                 alert("Game Draw!");
                 window.location.reload();
@@ -93,3 +92,8 @@ function btnClick(event) {
 buttons.forEach(button => {
     button.addEventListener('click', btnClick);
 });
+
+function btnReloadClick(){
+    location.reload();
+    return;
+}
