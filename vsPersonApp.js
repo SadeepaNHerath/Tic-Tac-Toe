@@ -25,19 +25,30 @@ function btnClick(event) {
             (buttons[1].innerText === currentPlayer && buttons[4].innerText === currentPlayer && buttons[7].innerText === currentPlayer) || 
             (buttons[2].innerText === currentPlayer && buttons[5].innerText === currentPlayer && buttons[8].innerText === currentPlayer)
         ) {
-            alert("Player " + currentPlayer + " Wins!");
-            window.location.reload();
-            return;
-        }if(usedBtns.length == 9){
-            alert("Game Draw!");
-            window.location.reload();
-            return;
+            setTimeout(() => {
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                alert("Player " + currentPlayer + " Won !");
+                window.location.reload();
+                return;
+            }, 400);
+        }
+        else if(usedBtns.length == 9){
+            setTimeout(() => {
+                alert("Game Draw!");
+                window.location.reload();
+                return;
+            }, 400);
+        }
+        else{
+
         }
         currentPlayer = currentPlayer === "X" ? "O" : "X";
         player.innerText = "Player " + currentPlayer + " Turn";
+
     }
 }
 
 buttons.forEach(button => {
     button.addEventListener('click', btnClick);
 });
+
