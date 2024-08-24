@@ -3,7 +3,7 @@ window.addEventListener("load" , function(){
     preloader.style.display = "none";
 })
 
-let buttons = document.querySelectorAll(".btn");
+let buttons = document.querySelectorAll(".game-btn");
 let buttonsArray = Array.from(buttons);
 let player = document.getElementById("player");
 let usedBtns = [];
