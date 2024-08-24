@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body class="bg-dark text-light">
+
+    <div id="preloader"></div>
+
+    <div class="container text-center mt-5">
+        <h1 class="display-3 text-warning">Tic-tac-toe</h1>
+        <p class="lead mt-3 mb-5" id="player">
+            <b>Player X</b>
+        </p>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <table class="text-center table-sm" style="padding: auto;">
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn1" value="1"> </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn2" value="2"></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn3" value="3"> </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn4" value="4"> </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn5" value="5"> </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn6" value="6"> </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn7" value="7"> </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn8" value="8"> </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-lg" style="height: 100px; width: 100px;" id="btn9" value="9"> </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <i class="bi bi-controller fs-1 text-warning"></i>
+                <h3 class="mt-3">Tic-tac-toe</h3>
+                <p style="text-align: justify;">Simple two-player game where players take turns marking 'X' or 'O' on a 3x3 grid. The goal is to be the first to align three symbols in a row, column, or diagonal. If all spaces are filled without a winner, the game ends in a draw.</p>
+            </div>                                  
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+    <footer class="mt-auto bg-secondary text-light py-3">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="text-light">© 2024 Sadeepa N Herath</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/SadeepaNHerath" target="_blank"><i class="bi bi-github"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.tiktok.com/@sadeepanherath?_t=8p3J8dyFl5k&_r=1" target="_blank"><i class="bi bi-tiktok"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/sadeepa_herath_18?igsh=NHg2emxpeHpnZnJu" target="_blank"><i class="bi bi-instagram"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/SadeepaNHerath?mibextid=ZbWKwL" target="_blank"><i class="bi bi-facebook"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+      <script src="app.js"></script>
+</body>
+</html>
