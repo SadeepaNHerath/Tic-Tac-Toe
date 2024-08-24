@@ -25,7 +25,7 @@ function btnClick(event) {
             (buttons[1].innerText === currentPlayer && buttons[4].innerText === currentPlayer && buttons[7].innerText === currentPlayer) || 
             (buttons[2].innerText === currentPlayer && buttons[5].innerText === currentPlayer && buttons[8].innerText === currentPlayer)
         ) {
-            alert(currentPlayer + " Wins!");
+            alert("Player " + currentPlayer + " Wins!");
             window.location.reload();
             return;
         }if(usedBtns.length == 9){
@@ -34,7 +34,7 @@ function btnClick(event) {
             return;
         }
         currentPlayer = currentPlayer === "X" ? "O" : "X";
-        player.innerText = "Player " + currentPlayer;
+        player.innerText = "Player " + currentPlayer + " Turn";
     }
 }
 
