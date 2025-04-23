@@ -8,11 +8,10 @@ let player = document.getElementById("player");
 let usedBtns = [];
 let currentPlayer = "X";
 
-// Win patterns: rows, columns, diagonals
 const winPatterns = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-    [0, 4, 8], [2, 4, 6]            // diagonals
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
 ];
 
 function checkWinner() {
@@ -34,7 +33,6 @@ function highlightWinningPattern(pattern) {
     pattern.forEach(index => {
         buttons[index].classList.remove("btn-outline-primary");
         buttons[index].classList.add("btn-success");
-        // Add animation to winning buttons
         buttons[index].style.animation = "pulse 1s";
     });
 }
@@ -46,7 +44,6 @@ function btnClick(event) {
         usedBtns.push(clickedButton.value);
         clickedButton.innerText = currentPlayer;
         
-        // Add a subtle transition effect on button press
         clickedButton.style.transform = "scale(0.95)";
         setTimeout(() => {
             clickedButton.style.transform = "";
@@ -56,7 +53,6 @@ function btnClick(event) {
         if (result) {
             highlightWinningPattern(result.pattern);
             setTimeout(() => {
-                // Create a custom winning message
                 const winnerMessage = document.createElement("div");
                 winnerMessage.innerHTML = `
                     <div class="alert alert-success">
@@ -65,11 +61,9 @@ function btnClick(event) {
                     </div>
                 `;
                 
-                // Show message with a nice animation
                 document.querySelector(".game-container").prepend(winnerMessage);
                 winnerMessage.style.animation = "fadeIn 0.5s";
                 
-                // Set a timeout to remove the message and reset the game
                 setTimeout(() => {
                     winnerMessage.style.animation = "fadeOut 0.5s";
                     setTimeout(() => {
@@ -85,7 +79,6 @@ function btnClick(event) {
         } 
         else if(usedBtns.length == 9) {
             setTimeout(() => {
-                // Create a draw message
                 const drawMessage = document.createElement("div");
                 drawMessage.innerHTML = `
                     <div class="alert alert-warning">
@@ -94,7 +87,6 @@ function btnClick(event) {
                     </div>
                 `;
                 
-                // Show message with animation
                 document.querySelector(".game-container").prepend(drawMessage);
                 drawMessage.style.animation = "fadeIn 0.5s";
                 
@@ -132,7 +124,6 @@ function btnReloadClick() {
     player.innerText = "Player " + currentPlayer + " Turn";
 }
 
-// Add animations to the CSS
 document.head.insertAdjacentHTML('beforeend', `
     <style>
         @keyframes pulse {

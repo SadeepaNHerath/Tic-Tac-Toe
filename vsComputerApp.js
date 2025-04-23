@@ -7,11 +7,10 @@ let buttons = document.querySelectorAll(".game-btn");
 let buttonsArray = Array.from(buttons);
 let player = document.getElementById("player");
 
-// Win patterns: rows, columns, diagonals
 const winPatterns = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-    [0, 4, 8], [2, 4, 6]            // diagonals
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
 ];
 
 function checkWinner() {
@@ -33,16 +32,13 @@ function highlightWinningPattern(pattern) {
     pattern.forEach(index => {
         buttons[index].classList.remove("btn-outline-primary");
         buttons[index].classList.add("btn-success");
-        // Add animation to winning buttons
         buttons[index].style.animation = "pulse 1s";
     });
 }
 
 function findBestMove() {
-    // Smart AI: First check if computer can win
     for (let pattern of winPatterns) {
         const [a, b, c] = pattern;
-        // Check if computer can win
         if (buttons[a].innerText === "O" && buttons[b].innerText === "O" && buttons[c].innerText === "") {
             return c;
         }
@@ -54,10 +50,8 @@ function findBestMove() {
         }
     }
 
-    // Then check if player is about to win and block
     for (let pattern of winPatterns) {
         const [a, b, c] = pattern;
-        // Check if player is about to win and block
         if (buttons[a].innerText === "X" && buttons[b].innerText === "X" && buttons[c].innerText === "") {
             return c;
         }
@@ -69,25 +63,22 @@ function findBestMove() {
         }
     }
 
-    // Take center if available
     if (buttons[4].innerText === "") {
         return 4;
     }
 
-    // Take corners if available
     const corners = [0, 2, 6, 8];
     const availableCorners = corners.filter(i => buttons[i].innerText === "");
     if (availableCorners.length > 0) {
         return availableCorners[Math.floor(Math.random() * availableCorners.length)];
     }
 
-    // Otherwise take any available spot
     const emptyButtons = buttonsArray.filter(button => button.innerText === "");
     if (emptyButtons.length > 0) {
         return buttonsArray.indexOf(emptyButtons[Math.floor(Math.random() * emptyButtons.length)]);
     }
     
-    return -1; // No moves available
+    return -1;
 }
 
 function showGameMessage(message, type) {
@@ -99,7 +90,6 @@ function showGameMessage(message, type) {
         </div>
     `;
     
-    // Show message with animation
     document.querySelector(".game-container").prepend(messageElement);
     messageElement.style.animation = "fadeIn 0.5s";
     
@@ -115,13 +105,11 @@ function showGameMessage(message, type) {
 function computerTurn() {
     const moveIndex = findBestMove();
     if (moveIndex >= 0) {
-        // Add thinking effect before computer makes a move
         player.innerText = "Computer is thinking...";
         
         setTimeout(() => {
             buttons[moveIndex].innerText = "O";
             
-            // Add visual feedback for computer's move
             buttons[moveIndex].style.backgroundColor = "rgba(13, 110, 253, 0.2)";
             setTimeout(() => {
                 buttons[moveIndex].style.backgroundColor = "";
@@ -149,7 +137,7 @@ function computerTurn() {
                     button.disabled = false;
                 }
             });
-        }, 600); // Make the computer "think" for a moment
+        }, 600);
     }
 }
 
@@ -159,7 +147,6 @@ function btnClick(event) {
     if (clickedButton.innerText === "") {
         clickedButton.innerText = "X";
         
-        // Add a subtle transition effect on button press
         clickedButton.style.transform = "scale(0.95)";
         setTimeout(() => {
             clickedButton.style.transform = "";
@@ -206,13 +193,10 @@ buttons.forEach(button => {
     button.addEventListener('click', btnClick);
 });
 
-// Initialize the game
 document.addEventListener("DOMContentLoaded", function() {
-    // If restart game from modal is clicked
     document.getElementById("restartGame").addEventListener('click', btnReloadClick);
 });
 
-// Add animations to the CSS
 document.head.insertAdjacentHTML('beforeend', `
     <style>
         @keyframes pulse {
